@@ -22,15 +22,15 @@ let vendor = "Citrix"
 let copyright = "Citrix Inc"
 let required_api_version = "2.0"
 let features = [
-  "VDI_CREATE", 0L;
-  "VDI_DELETE", 0L;
-  "VDI_ATTACH", 0L;
-  "VDI_DETACH", 0L;
-  "VDI_ACTIVATE", 0L;
-  "VDI_DEACTIVATE", 0L;
-  "VDI_SNAPSHOT", 0L;
-  "VDI_CLONE", 0L;
-  "VDI_RESIZE", 0L;
+  "VDI_CREATE";
+  "VDI_DELETE";
+  "VDI_ATTACH";
+  "VDI_DETACH";
+  "VDI_ACTIVATE";
+  "VDI_DEACTIVATE";
+  "VDI_SNAPSHOT";
+  "VDI_CLONE";
+  "VDI_RESIZE";
 ]
 let _path = "path"
 let _location = "location"
@@ -542,6 +542,8 @@ module Implementation = struct
        (* attach will validate the device_config parameters *)
        attach ctx ~dbg ~sr ~device_config;
        detach ctx ~dbg ~sr
+    let update_snapshot_info_src = update_snapshot_info_src
+    let update_snapshot_info_dest = update_snapshot_info_dest
   end
   module UPDATES = struct include Storage_skeleton.UPDATES end
   module TASK = struct include Storage_skeleton.TASK end
